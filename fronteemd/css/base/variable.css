@@ -1,0 +1,29 @@
+:root{
+
+
+    /* Cores principais */
+    --primary: #2D9CDB;
+    --primary-dark: #0B3A6E;
+
+    /* Fundo */
+    --background: #F5F9FC;
+    --white: #FFFFFF;
+
+    /* Textos */
+    --text: #1F2937;
+    --text-light: #6B7280;
+
+    /* Bordas */
+    --border: #DCE7F2;
+
+    /* Destaques */
+    --success: #22C55E;
+    --warning: #F59E0B;
+    --danger: #EF4444;
+
+    /* Layout */
+    --radius: 12px;
+
+    --shadow: 0 5px 15px rgba(0,0,0,.08);
+
+}

@@ -1,0 +1,269 @@
+* {
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+
+body {
+
+    min-height:100vh;
+
+    background:#f5f9fc;
+
+    font-family:Arial, sans-serif;
+
+}
+
+
+
+/* CONTAINER */
+
+.container {
+
+    width:min(95%,1200px);
+
+    margin:auto;
+
+    padding:clamp(15px,3vw,40px);
+
+}
+
+
+
+/* TITULO */
+
+.container h1 {
+
+    background:#071c3b;
+
+    color:white;
+
+    text-align:center;
+
+    padding:25px;
+
+    border-radius:12px;
+
+    margin-bottom:30px;
+
+}
+
+
+
+/* FORMULÁRIO */
+
+#productForm {
+
+    background:white;
+
+    padding:clamp(15px,3vw,35px);
+
+    border-radius:12px;
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,.08);
+
+}
+
+
+
+.form-group {
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.form-group label {
+
+    font-weight:bold;
+
+    color:#071c3b;
+
+}
+
+
+
+input,
+textarea {
+
+    width:100%;
+
+    padding:12px;
+
+    border-radius:8px;
+
+    border:1px solid #ccc;
+
+    font-size:16px;
+
+}
+
+
+
+textarea {
+
+    min-height:120px;
+
+    resize:vertical;
+
+}
+
+
+
+/* BOTÃO SALVAR */
+
+#saveButton {
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#1e90ff;
+
+    color:white;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+}
+
+
+
+#saveButton:hover {
+
+    background:#0d6efd;
+
+}
+
+
+
+/* TABELA */
+
+h2 {
+
+    margin:30px 0 15px;
+
+    color:#071c3b;
+
+}
+
+
+
+table {
+
+    width:100%;
+
+    background:white;
+
+    border-collapse:collapse;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+}
+
+
+
+th {
+
+    background:#071c3b;
+
+    color:white;
+
+}
+
+
+
+th,
+td {
+
+    padding:12px;
+
+    white-space:nowrap;
+
+    text-align:center;
+
+}
+
+
+
+/* CORREÇÃO DOS BOTÕES EDITAR / EXCLUIR */
+
+td button {
+
+    width:auto;
+
+    padding:8px 14px;
+
+    margin:3px;
+
+    border:none;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-size:14px;
+
+}
+
+
+
+td button:first-child {
+
+    background:#1e90ff;
+
+    color:white;
+
+}
+
+
+
+td button:last-child {
+
+    background:#dc3545;
+
+    color:white;
+
+}
+
+
+
+td button:hover {
+
+    opacity:.85;
+
+}
+
+
+
+/* RESPONSIVO */
+
+@media(max-width:768px){
+
+
+    table {
+
+        min-width:700px;
+
+    }
+
+
+}

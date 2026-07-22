@@ -1,0 +1,327 @@
+/* ==========================
+   NOTEBOOKS
+========================== */
+
+@media (max-width:1200px){
+
+    .header-actions{
+
+        padding:12px 25px;
+
+    }
+
+    .products-grid{
+
+        grid-template-columns:repeat(3,1fr);
+
+    }
+
+}
+
+
+/* ==========================
+   TABLETS
+========================== */
+
+@media (max-width:992px){
+
+    .header-actions{
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+
+        padding:20px;
+
+    }
+
+    .cart{
+
+        order:1;
+
+    }
+
+    .cart-button{
+
+        order:2;
+
+    }
+
+    .search-box{
+
+        order:3;
+
+        flex:0 0 100%;
+
+        max-width:100%;
+
+        margin-top:15px;
+
+    }
+
+    .categorias{
+
+        flex-wrap:wrap;
+
+        gap:10px;
+
+        padding:15px;
+
+    }
+
+    .products-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+
+/* ==========================
+   CELULARES
+========================== */
+
+@media (max-width:768px){
+
+    .banner img{
+
+        width:100%;
+
+        height:auto;
+
+    }
+
+ .header-actions{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:15px;
+
+    gap:15px;
+
+}
+
+   .cart{
+
+    width:100%;
+
+    justify-content:center;
+
+}
+
+.search-box{
+
+    width:100%;
+
+    max-width:500px;
+
+    margin:0;
+
+    flex:none;
+
+}
+
+.cart-button{
+
+    width:100%;
+
+    max-width:500px;
+
+}
+
+    .categorias{
+
+        flex-wrap:wrap;
+
+        gap:10px;
+
+        padding:10px;
+
+    }
+
+    .categorias button{
+
+        flex:1;
+
+        min-width:120px;
+
+    }
+
+    .products-grid{
+
+        grid-template-columns:1fr;
+
+        padding:15px;
+
+    }
+
+    .product-imagem{
+
+        height:220px;
+
+    }
+
+}
+
+
+@media(max-width:600px){
+
+
+.table-container{
+    overflow:visible;
+}
+
+
+table,
+thead,
+tbody,
+th,
+td,
+tr{
+    display:block;
+}
+
+
+thead{
+    display:none;
+}
+
+
+tr{
+
+    background:white;
+    margin-bottom:20px;
+    border-radius:12px;
+    padding:15px;
+    box-shadow:0 3px 10px rgba(0,0,0,.08);
+
+}
+
+
+td{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 0;
+    border-bottom:1px solid #eee;
+
+}
+
+
+td:last-child{
+
+    border:none;
+
+}
+
+
+td::before{
+
+    font-weight:bold;
+
+}
+
+
+/* nomes dos campos */
+
+td:nth-child(1)::before{
+    content:"Imagem";
+}
+
+
+td:nth-child(2)::before{
+    content:"Nome";
+}
+
+
+td:nth-child(3)::before{
+    content:"Categoria";
+}
+
+
+td:nth-child(4)::before{
+    content:"Preço";
+}
+
+
+td:nth-child(5)::before{
+    content:"Estoque";
+}
+
+
+td:nth-child(6)::before{
+    content:"Ações";
+}
+
+
+}
+
+/* ==========================
+   CELULARES PEQUENOS
+========================== */
+
+@media (max-width:480px){
+
+    .header-actions{
+
+        padding:10px;
+
+    }
+
+    .search-box input{
+
+        font-size:15px;
+
+    }
+
+    .search-box button{
+
+        width:48px;
+
+    }
+
+    .cart{
+
+        font-size:18px;
+
+    }
+
+    .cart-button{
+
+        height:44px;
+
+        font-size:15px;
+
+    }
+
+    .categorias button{
+
+        font-size:14px;
+
+        padding:10px;
+
+    }
+
+    .product-info{
+
+        padding:15px;
+
+    }
+
+    h1{
+
+        font-size:28px;
+
+        text-align:center;
+
+    }
+
+}
