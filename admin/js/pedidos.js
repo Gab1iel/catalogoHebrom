@@ -1,0 +1,1 @@
+console.log("Área de pedidos carregada");

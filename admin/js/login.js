@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded",()=>{
                 dados.token
             );
 
-            window.location.href = "/admin/deshabord.html";
+            window.location.href="painel.html";
 
         }else{
 

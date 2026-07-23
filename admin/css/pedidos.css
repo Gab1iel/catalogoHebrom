@@ -1,0 +1,156 @@
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+
+body{
+
+    min-height:100vh;
+
+    background:#f5f9fc;
+
+    font-family:Arial,sans-serif;
+
+}
+
+
+
+.container{
+
+    width:min(95%,1200px);
+
+    margin:auto;
+
+    padding:40px;
+
+}
+
+
+
+.topo-pedidos{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:30px;
+
+}
+
+
+
+.topo-pedidos h1{
+
+    background:#071c3b;
+
+    color:white;
+
+    padding:25px;
+
+    border-radius:12px;
+
+    flex:1;
+
+}
+
+
+
+.btn-voltar{
+
+    margin-left:20px;
+
+    background:#1e90ff;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:12px 20px;
+
+    border-radius:8px;
+
+}
+
+
+
+.pedido{
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:12px;
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,.08);
+
+}
+
+
+
+.pedido h2{
+
+    color:#071c3b;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.pedido p{
+
+    margin-bottom:12px;
+
+}
+
+
+
+select{
+
+    margin-top:10px;
+
+    padding:10px;
+
+    border-radius:8px;
+
+    border:1px solid #ccc;
+
+}
+
+
+
+@media(max-width:768px){
+
+
+    .container{
+
+        padding:20px;
+
+    }
+
+
+    .topo-pedidos{
+
+        flex-direction:column;
+
+    }
+
+
+    .btn-voltar{
+
+        margin:15px 0 0;
+
+        width:100%;
+
+        text-align:center;
+
+    }
+
+}
