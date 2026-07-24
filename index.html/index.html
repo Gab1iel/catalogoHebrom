@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="../fronteemd/css/layout/header.css">
     <link rel="stylesheet" href="../fronteemd/css/components/products.css">
     <link rel="stylesheet" href="../fronteemd/css/layout/responsive.css">
+    <link rel="stylesheet" href="/admin/css/pedidos.css">
+    <link rel="stylesheet" href="../fronteemd/css/menuHamburger.css">
 </head>
 <body>
     
@@ -16,10 +18,73 @@
         <div class="banner">
             <img src="/fronteemd/assetes/banner-hebrom.png" alt="Banner da empresa">
         </div>
+        
         <div class="header-menu">
 
             <div class="header-actions">
             
+                <button class="menu-button" id="menuButton">
+                        <span>☰</span>
+                </button>
+
+<div id="menuOverlay" class="menu-overlay"></div>
+
+
+<aside id="sideMenu" class="side-menu">
+
+    <button id="closeMenu" class="close-menu">
+        ×
+    </button>
+
+
+    <div class="menu-content">
+
+        <img src="../fronteemd/assetes/logoHebrom.png" class="menu-logo">
+
+
+<nav class="menu-links">
+
+    <a href="#">
+        🏠
+        <span>Início</span>
+    </a>
+
+
+    <a href="#productsGrid">
+        📦
+        <span>Produtos</span>
+    </a>
+
+
+    <a href="#">
+        🗂️
+        <span>Categorias</span>
+    </a>
+
+
+    <a href="https://wa.me/557499271881" target="_blank" rel="noopener noreferrer" >
+        📞
+        <span>Contato</span>
+    </a>
+
+
+    <a href="/admin/login.html">
+        🔐
+        <span>Login/Admin</span>
+    </a>
+
+</nav>
+
+
+        <button class="menu-whatsapp">
+            Falar no WhatsApp
+        </button>
+
+
+    </div>
+
+</aside>
+
                 <div class="cart">
                     🛒 <span>0</span>
                 </div>
@@ -37,8 +102,6 @@
                 <button class="cart-button">
                       🛒 Carrinho
                 </button>
-                
-            </div>
 
             <nav class="categorias"> 
                 
@@ -74,6 +137,99 @@
 </section>
 
     </main>
+
+  <div class="cart-modal" id="cartModal">
+
+    <div class="cart-content">
+
+        <div class="cart-header">
+
+            <h2>Meu Carrinho</h2>
+
+            <button id="closeCart">
+                ✖
+            </button>
+
+        </div>
+
+
+        <div class="cart-items" id="cartItems">
+
+            <p>
+                Seu carrinho está vazio.
+            </p>
+
+        </div>
+
+
+        <div class="cart-footer">
+
+    <h3>
+        Total:
+        <span id="cartTotal">
+            R$ 0,00
+        </span>
+    </h3>
+
+
+    <button id="checkoutButton">
+        Finalizar Pedido
+    </button>
+
+
+</div>
+
+
+<div class="checkout-form" id="checkoutForm">
+
+
+    <h2>
+        Finalizar Pedido
+    </h2>
+
+
+    <form action="pedidoForm">
+        <input
+            type="text"
+            id="nomeCliente"
+            placeholder="Nome completo"
+            required
+        >
+        <input
+            type="text"
+            id="cpfCnpj"
+            placeholder="CPF ou CNPJ"
+            required
+        >
+        <input
+            type="text"
+            id="telefone"
+            placeholder="Telefone"
+            required
+        >
+        <input
+            type="text"
+            id="cep"
+            placeholder="CEP"
+            required
+        >
+        <input
+            type="text"
+            id="endereco"
+            placeholder="Endereço completo"
+            required
+        >
+        <button id="confirmarPedido">
+            Confirmar Pedido
+        </button>
+    </form>
+
+</div>
+
+
+    </div>
+
+</div>
     
     <script src="/js/main.js"></script>
     

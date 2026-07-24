@@ -1,0 +1,455 @@
+/* =========================
+   PEDIDOS - PADRÃO HEBROM
+========================= */
+
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+
+    margin:0;
+
+    font-family:Arial, Helvetica, sans-serif;
+
+    background:#E9EEF3;
+
+    color:#333;
+
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+
+.container{
+
+    width:90%;
+
+    max-width:1200px;
+
+    margin:40px auto;
+
+}
+
+
+
+/* =========================
+   TOPO
+========================= */
+
+
+.topo-pedidos{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:35px;
+
+}
+
+
+.topo-pedidos h1{
+
+    margin:0;
+
+    color:#0B3A6E;
+
+    font-size:32px;
+
+}
+
+
+
+/* =========================
+   BOTÃO VOLTAR
+========================= */
+
+
+.btn-voltar{
+
+    text-decoration:none;
+
+    background:#2D9CDB;
+
+    color:white;
+
+    padding:12px 22px;
+
+    border-radius:10px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+
+.btn-voltar:hover{
+
+    background:#0B3A6E;
+
+}
+
+
+
+/* =========================
+   LISTA DE PEDIDOS
+========================= */
+
+
+.pedidos-container{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:30px;
+
+    padding-bottom:40px;
+
+}
+
+
+
+/* =========================
+   CARD PEDIDO
+========================= */
+
+
+.pedido{
+
+    background:#FFFFFF;
+
+    padding:30px;
+
+    border-radius:18px;
+
+    border:1px solid #D8E0E8;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+}
+
+
+
+/* =========================
+   CABEÇALHO DO PEDIDO
+========================= */
+
+
+.pedido-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding-bottom:20px;
+
+    margin-bottom:20px;
+
+    border-bottom:1px solid #eee;
+
+}
+
+
+
+.pedido-header h2{
+
+    margin:0;
+
+    color:#0B3A6E;
+
+    font-size:22px;
+
+}
+
+
+
+/* =========================
+   INFORMAÇÕES CLIENTE
+========================= */
+
+
+.pedido p{
+
+    margin:10px 0;
+
+    line-height:1.5;
+
+}
+
+
+.pedido strong{
+
+    color:#0B3A6E;
+
+}
+
+
+
+/* =========================
+   STATUS
+========================= */
+
+
+.status{
+
+    padding:8px 16px;
+
+    border-radius:30px;
+
+    font-size:14px;
+
+    font-weight:bold;
+
+}
+
+
+
+/* NOVO */
+
+.status.novo{
+
+    background:#FFF3CD;
+
+    color:#856404;
+
+}
+
+
+
+/* EM ANALISE */
+
+.status.em análise{
+
+    background:#D1ECF1;
+
+    color:#0C5460;
+
+}
+
+
+
+/* ENVIADO */
+
+.status.enviado{
+
+    background:#D1ECF1;
+
+    color:#0C5460;
+
+}
+
+
+
+/* FINALIZADO */
+
+.status.finalizado{
+
+    background:#D4EDDA;
+
+    color:#155724;
+
+}
+
+
+
+/* =========================
+   PRODUTOS
+========================= */
+
+
+.lista-produtos{
+
+    margin:20px 0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+
+
+.lista-produtos::before{
+
+    content:"";
+
+}
+
+
+
+.produto-pedido{
+
+    background:#F5F9FC;
+
+    padding:18px;
+
+    border-radius:12px;
+
+    border-left:4px solid #2D9CDB;
+
+}
+
+
+
+.produto-pedido strong{
+
+    font-size:17px;
+
+}
+
+
+
+/* =========================
+   TOTAL
+========================= */
+
+
+.pedido h3{
+
+    color:#0B3A6E;
+
+    margin-top:25px;
+
+}
+
+
+
+/* =========================
+   ALTERAR STATUS
+========================= */
+
+
+.alterar-status{
+
+    margin-top:30px;
+
+    padding-top:20px;
+
+    border-top:1px solid #eee;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+
+
+.alterar-status label{
+
+    font-weight:bold;
+
+}
+
+
+
+.alterar-status select{
+
+    padding:12px 15px;
+
+    border-radius:10px;
+
+    border:1px solid #ccc;
+
+    background:white;
+
+    cursor:pointer;
+
+    font-size:14px;
+
+}
+
+
+
+.alterar-status select:focus{
+
+    outline:none;
+
+    border-color:#2D9CDB;
+
+}
+
+
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+
+@media(max-width:768px){
+
+
+    .container{
+
+        width:95%;
+
+        margin:25px auto;
+
+    }
+
+
+
+    .topo-pedidos{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:20px;
+
+    }
+
+
+
+    .topo-pedidos h1{
+
+        font-size:26px;
+
+    }
+
+
+
+    .pedido{
+
+        padding:20px;
+
+    }
+
+
+
+    .pedido-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:15px;
+
+    }
+
+
+
+    .alterar-status{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+
+}
