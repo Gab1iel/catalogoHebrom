@@ -20,8 +20,8 @@ document.addEventListener("DOMContentLoaded",()=>{
 
 
         const resposta = await fetch(
-            "http://localhost:3000/admin/login",
-            {
+    "https://catalogohebrom-production.up.railway.app/admin/login",
+    {
 
                 method:"POST",
 
