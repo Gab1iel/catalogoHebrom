@@ -453,6 +453,13 @@ const cep = document.getElementById("cep").value.trim();
 
 const enderecoCompleto = document.getElementById("endereco").value.trim();
 
+console.log({
+    nome_cliente,
+    cpf_cnpj,
+    telefone,
+    cep,
+    enderecoCompleto
+});
 
 const endereco = cep + " - " + enderecoCompleto;
 
