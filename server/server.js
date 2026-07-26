@@ -8,6 +8,7 @@ require("./config/initDatabase");
 const express = require("express");
 const cors = require("cors");
 
+
 const produtosRoutes = require("./routes/produtos")
 const authRoutes = require("./routes/auth"); 
 const pedidosRoutes = require("./routes/pedidos");
