@@ -443,31 +443,32 @@ confirmarPedido.addEventListener("click", async () => {
 
     }
 
-    document.getElementById("endereco").value = "";
+const nome_cliente = document.getElementById("nomeCliente").value.trim();
 
-    const nome_cliente = document.getElementById("nomeCliente").value;
+const cpf_cnpj = document.getElementById("cpfCnpj").value.trim();
 
-    const cpf_cnpj = document.getElementById("cpfCnpj").value;
+const telefone = document.getElementById("telefone").value.trim();
 
-    const telefone = document.getElementById("telefone").value;
+const cep = document.getElementById("cep").value.trim();
 
-    const endereco =
-        document.getElementById("cep").value +
-        " - " +
-        document.getElementById("endereco").value;
+const enderecoCompleto = document.getElementById("endereco").value.trim();
 
 
+const endereco = cep + " - " + enderecoCompleto;
 
-    if(
+
+if(
     !nome_cliente ||
     !cpf_cnpj ||
     !telefone ||
-    !endereco.value
+    !cep ||
+    !enderecoCompleto
 ){
 
     alert("⚠️ Preencha todos os campos antes de finalizar o pedido.");
 
     confirmarPedido.disabled = false;
+    confirmarPedido.textContent = "Confirmar Pedido";
 
     return;
 
