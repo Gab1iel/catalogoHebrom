@@ -1,22 +1,22 @@
-const db = require("../database/database");
+const db = require("../database/postgres");
 
 
 // =========================
 // CRIAR PEDIDO
 // =========================
-exports.criarPedido = (req, res) => {
+exports.criarPedido = async (req, res) => {
 
-   const {
-    nome_cliente,
-    cpf_cnpj,
-    telefone,
-    endereco,
-    produtos,
-    valor_total
-} = req.body;
+    const {
+        nome_cliente,
+        cpf_cnpj,
+        telefone,
+        endereco,
+        produtos,
+        valor_total
+    } = req.body;
 
 
-   if (!nome_cliente || !cpf_cnpj || !telefone || !endereco || !produtos || !valor_total) {
+    if (!nome_cliente || !cpf_cnpj || !telefone || !endereco || !produtos || !valor_total) {
 
         return res.status(400).json({
             erro: "Todos os campos são obrigatórios"
@@ -25,50 +25,56 @@ exports.criarPedido = (req, res) => {
     }
 
 
-   const sql = `
-    INSERT INTO pedidos
-    (
-        nome_cliente,
-        cpf_cnpj,
-        telefone,
-        endereco,
-        produtos,
-        valor_total
-    )
-    VALUES (?, ?, ?, ?, ?, ?)
-`;
+    const sql = `
+        INSERT INTO pedidos
+        (
+            nome_cliente,
+            cpf_cnpj,
+            telefone,
+            endereco,
+            produtos,
+            valor_total
+        )
+        VALUES ($1, $2, $3, $4, $5, $6)
+        RETURNING id
+    `;
 
 
-    db.run(
-        sql,
-         [
-        nome_cliente,
-        cpf_cnpj,
-        telefone,
-        endereco,
-        produtos,
-        valor_total
-         ],
-      function(err){
+    try {
 
-            if(err){
+        const resultado = await db.query(
+            sql,
+            [
+                nome_cliente,
+                cpf_cnpj,
+                telefone,
+                endereco,
+                produtos,
+                valor_total
+            ]
+        );
 
-                return res.status(500).json({
-                    erro: "Erro ao criar pedido",
-                    detalhes: err.message
-                });
 
-            }
+        console.log(
+            "PEDIDO SALVO ID:",
+            resultado.rows[0].id
+        );
 
-            console.log("PEDIDO SALVO ID:", this.lastID);
 
-            res.status(201).json({
-                mensagem: "Pedido criado com sucesso",
-                id: this.lastID
-            });
+        res.status(201).json({
+            mensagem: "Pedido criado com sucesso",
+            id: resultado.rows[0].id
+        });
 
-        }
-    );
+
+    } catch(err){
+
+        res.status(500).json({
+            erro: "Erro ao criar pedido",
+            detalhes: err.message
+        });
+
+    }
 
 };
 
@@ -77,44 +83,43 @@ exports.criarPedido = (req, res) => {
 // =========================
 // LISTAR PEDIDOS
 // =========================
-exports.listarPedidos = (req, res) => {
+exports.listarPedidos = async (req, res) => {
 
-    const sql = `
-        SELECT *
-        FROM pedidos
-        ORDER BY criado_em DESC
-    `;
+    try {
 
-
-    db.all(sql, [], (err, pedidos)=>{
-
-        if(err){
-
-            return res.status(500).json({
-                erro: "Erro ao buscar pedidos",
-                detalhes: err.message
-            });
-
-        }
+        const resultado = await db.query(`
+            SELECT *
+            FROM pedidos
+            ORDER BY criado_em DESC
+        `);
 
 
-        res.status(200).json(pedidos);
+        res.status(200).json(resultado.rows);
 
-    });
+
+    } catch(err){
+
+        res.status(500).json({
+            erro: "Erro ao buscar pedidos",
+            detalhes: err.message
+        });
+
+    }
 
 };
 
+
+
 // =========================
-// ATUALIZAR STATUS DO PEDIDO
+// ATUALIZAR STATUS
 // =========================
-exports.atualizarStatusPedido = (req, res) => {
+exports.atualizarStatusPedido = async (req, res) => {
 
     const { id } = req.params;
-
     const { status } = req.body;
 
 
-    if (!status) {
+    if(!status){
 
         return res.status(400).json({
             erro: "Status obrigatório"
@@ -123,49 +128,42 @@ exports.atualizarStatusPedido = (req, res) => {
     }
 
 
-    const sql = `
-        UPDATE pedidos
-        SET status = ?
-        WHERE id = ?
-    `;
+    try {
+
+        const resultado = await db.query(
+            `
+            UPDATE pedidos
+            SET status = $1
+            WHERE id = $2
+            `,
+            [
+                status,
+                id
+            ]
+        );
 
 
-    db.run(
-        sql,
-        [
-            status,
-            id
-        ],
-        function(err){
+        if(resultado.rowCount === 0){
 
-            if(err){
-
-                return res.status(500).json({
-                    erro: "Erro ao atualizar pedido",
-                    detalhes: err.message
-                });
-
-            }
-
-
-            if(this.changes === 0){
-
-                return res.status(404).json({
-                    erro: "Pedido não encontrado"
-                });
-
-            }
-
-
-            res.status(200).json({
-
-                mensagem:
-                "Status atualizado com sucesso"
-
+            return res.status(404).json({
+                erro: "Pedido não encontrado"
             });
 
-
         }
-    );
+
+
+        res.status(200).json({
+            mensagem:"Status atualizado com sucesso"
+        });
+
+
+    } catch(err){
+
+        res.status(500).json({
+            erro:"Erro ao atualizar pedido",
+            detalhes:err.message
+        });
+
+    }
 
 };
