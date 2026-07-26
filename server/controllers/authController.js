@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const db = require("../database/database");
+const db = require("../database/postgres");
 const bcrypt = require("bcrypt");
 
 // =========================
@@ -37,35 +37,42 @@ exports.criarAdmin = async (req, res) => {
         // Criptografa a senha
         const senhaHash = await bcrypt.hash(senha, 10);
 
-        const sql = `
-            INSERT INTO admin (usuario, senha)
-            VALUES (?, ?)
-        `;
+const sql = `
+    INSERT INTO admin (usuario, senha)
+    VALUES ($1, $2)
+    RETURNING id
+`;
 
-        db.run(sql, [usuario, senhaHash], function (err) {
+try {
 
-            if (err) {
+    const resultado = await db.query(
+        sql,
+        [usuario, senhaHash]
+    );
 
-                // Usuário já existe
-                if (err.message.includes("UNIQUE")) {
-                    return res.status(409).json({
-                        erro: "Este usuário já está cadastrado."
-                    });
-                }
+    res.status(201).json({
+        mensagem: "Administrador criado com sucesso.",
+        id: resultado.rows[0].id
+    });
 
-                console.error("Erro ao criar administrador:", err.message);
+} catch (erro) {
 
-                return res.status(500).json({
-                    erro: "Erro interno do servidor."
-                });
-            }
-
-            res.status(201).json({
-                mensagem: "Administrador criado com sucesso.",
-                id: this.lastID
-            });
-
+    if (erro.message.includes("unique")) {
+        return res.status(409).json({
+            erro: "Este usuário já está cadastrado."
         });
+    }
+
+    console.error(
+        "Erro ao criar administrador:",
+        erro.message
+    );
+
+    return res.status(500).json({
+        erro: "Erro interno do servidor."
+    });
+
+}
 
     } catch (erro) {
 
@@ -77,9 +84,7 @@ exports.criarAdmin = async (req, res) => {
 
     }
 
-};
-
-// =========================
+};// =========================
 // LOGIN ADMIN
 // =========================
 exports.loginAdmin = async (req, res) => {
@@ -88,26 +93,30 @@ exports.loginAdmin = async (req, res) => {
 
     const { usuario, senha } = req.body;
 
+
     if (!usuario?.trim() || !senha?.trim()) {
         return res.status(400).json({
             erro: "Usuário e senha são obrigatórios."
         });
     }
 
-    const sql = `
-        SELECT * FROM admin
-        WHERE usuario = ?
-    `;
 
-    db.get(sql, [usuario.trim()], async (err, admin) => {
+    try {
 
-        if (err) {
-            console.error("Erro ao buscar administrador:", err.message);
+        const sql = `
+            SELECT * FROM admin
+            WHERE usuario = $1
+        `;
 
-            return res.status(500).json({
-                erro: "Erro interno do servidor."
-            });
-        }
+
+        const resultado = await db.query(
+            sql,
+            [usuario.trim()]
+        );
+
+
+        const admin = resultado.rows[0];
+
 
         if (!admin) {
             return res.status(401).json({
@@ -115,10 +124,12 @@ exports.loginAdmin = async (req, res) => {
             });
         }
 
+
         const senhaValida = await bcrypt.compare(
             senha.trim(),
             admin.senha
         );
+
 
         if (!senhaValida) {
             return res.status(401).json({
@@ -139,11 +150,24 @@ exports.loginAdmin = async (req, res) => {
         );
 
 
-        res.json({
+        return res.json({
             mensagem: "Login realizado com sucesso.",
             token
         });
 
-    });
+
+    } catch (erro) {
+
+        console.error(
+            "Erro no login:",
+            erro.message
+        );
+
+
+        return res.status(500).json({
+            erro: "Erro interno do servidor."
+        });
+
+    }
 
 };

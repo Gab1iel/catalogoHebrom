@@ -1,5 +1,8 @@
 require("dotenv").config();
 
+require("./database/postgres");
+require("./database/initPostgres");
+
 require("./config/initDatabase");
 
 const express = require("express");
