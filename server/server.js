@@ -7,6 +7,7 @@ require("./config/initDatabase");
 
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
 
 
 const produtosRoutes = require("./routes/produtos")
@@ -23,7 +24,10 @@ app.use((req, res, next) => {
 app.use(cors());
 app.use(express.json());
 
-app.use("/uploads", express.static("uploads"));
+app.use(
+    "/uploads",
+    express.static(path.join(__dirname, "uploads"))
+);
 
 // Rotas
 app.use(authRoutes);
