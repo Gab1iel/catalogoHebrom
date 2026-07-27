@@ -383,7 +383,53 @@ body{
 
 }
 
+/* ===========================
+   BOTÃO IMPRIMIR NOTA
+=========================== */
 
+.btn-imprimir{
+
+    background:#2D9CDB;
+
+    color:white;
+
+    border:none;
+
+    padding:12px 22px;
+
+    border-radius:8px;
+
+    font-size:15px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    transition:.3s;
+
+}
+
+
+.btn-imprimir:hover{
+
+    background:#0B3A6E;
+
+    transform:translateY(-2px);
+
+}
+
+
+.btn-imprimir:active{
+
+    transform:scale(.97);
+
+}
 
 /* =========================
    RESPONSIVO
