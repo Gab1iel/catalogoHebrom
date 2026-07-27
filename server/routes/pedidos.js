@@ -20,6 +20,12 @@ router.get(
     pedidosController.listarPedidos
 );
 
+// Buscar pedido específico (nota)
+router.get(
+    "/:id",
+    pedidosController.buscarPedidoPorId
+);
+
 router.put(
     "/:id",
     verificarToken,
