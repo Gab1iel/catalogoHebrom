@@ -300,7 +300,7 @@ async function alterarStatus(id, status){
 function imprimirPedido(id){
 
     window.open(
-        `/admin/nota.html?id=${id}`,
+        `/admin/notas.html?id=${id}`,
         "_blank"
     );
 
