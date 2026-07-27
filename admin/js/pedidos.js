@@ -164,7 +164,6 @@ try {
                 Produtos
             </h3>
 
-
             <div class="lista-produtos">
 
                 ${listaProdutos}
@@ -221,6 +220,18 @@ try {
 
 
             </div>
+
+            
+                <div class="acoes-pedido">
+
+                        <button
+                        class="btn-imprimir"
+                        onclick="imprimirPedido(${pedido.id})"
+                        >
+                            🖨 Imprimir Nota
+                        </button>
+
+                  </div>
 
 
 
@@ -286,6 +297,14 @@ async function alterarStatus(id, status){
 
 }
 
+function imprimirPedido(id){
+
+    window.open(
+        `nota.html?id=${id}`,
+        "_blank"
+    );
+
+}
 
 
 document.addEventListener(

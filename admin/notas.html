@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DAV - Documento Auxiliar de Venda</title>
+
+    <link rel="stylesheet" href="/admin/css/notas.css">
+
+</head>
+
+<body>
+
+
+<div class="dav">
+
+
+    <!-- ================= TOPO ================= -->
+
+    <div class="topo">
+
+
+        <div class="logo">
+
+            <img src="/fronteemd/assetes/logoHebrom.png" 
+                 alt="Hebrom" 
+                 id="logoEmpresa">
+
+        </div>
+
+
+        <div class="quadro-dav">
+
+
+            <table>
+
+
+                <tr>
+
+
+                    <td rowspan="4" class="dav-centro">
+
+
+                        <h1>DAV</h1>
+
+                        <p>
+                            Documento Auxiliar<br>
+                            de Venda
+                        </p>
+
+
+                        <span>Nº</span>
+
+
+                        <h2 id="numeroPedido">
+                            000000
+                        </h2>
+
+
+                    </td>
+
+
+                    <td class="titulo">
+                        Data Emissão
+                    </td>
+
+
+                    <td id="dataPedido">
+                        27/07/2026
+                    </td>
+
+
+                </tr>
+
+
+
+                <tr>
+
+
+                    <td class="titulo">
+                        Hora
+                    </td>
+
+
+                    <td id="horaPedido">
+                        10:46:31
+                    </td>
+
+
+                </tr>
+
+
+
+                <tr>
+
+
+                    <td>
+                        Valor Produtos
+                    </td>
+
+
+                    <td id="valorProdutos">
+                        R$ 0,00
+                    </td>
+
+
+                </tr>
+
+
+
+                <tr>
+
+
+                    <td>
+                        <strong>
+                            VALOR TOTAL
+                        </strong>
+                    </td>
+
+
+                    <td id="valorTotal">
+                        R$ 0,00
+                    </td>
+
+
+                </tr>
+
+
+
+            </table>
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+    <!-- ================= CLIENTE ================= -->
+
+
+    <div class="titulo-box">
+
+        DADOS DO CLIENTE
+
+    </div>
+
+
+
+    <table class="cliente">
+
+
+
+        <tr>
+
+
+            <td colspan="2">
+
+
+                CPF/CNPJ:
+
+                <span id="cpfCliente"></span>
+
+
+            </td>
+
+
+
+            <td rowspan="5" class="codigo">
+
+
+                <div class="codigo-barras-box">
+
+
+                    <div class="barras">
+
+                        *000000*
+
+                    </div>
+
+
+
+                    <div id="codigoPedido">
+
+                        000000
+
+                    </div>
+
+
+                </div>
+
+
+            </td>
+
+
+
+        </tr>
+
+
+
+
+
+        <tr>
+
+
+            <td colspan="2">
+
+
+                Nome:
+
+                <span id="nomeCliente"></span>
+
+
+            </td>
+
+
+        </tr>
+
+
+
+
+
+        <tr>
+
+
+            <td colspan="2">
+
+
+                Endereço:
+
+                <span id="enderecoCliente"></span>
+
+
+            </td>
+
+
+        </tr>
+
+
+
+
+
+        <tr>
+
+
+            <td>
+
+
+                Bairro:
+
+                <span id="bairroCliente"></span>
+
+
+            </td>
+
+
+
+            <td>
+
+
+                Cidade:
+
+                <span id="cidadeCliente"></span>
+
+
+            </td>
+
+
+
+        </tr>
+
+
+
+
+
+        <tr>
+
+
+            <td>
+
+
+                Telefone:
+
+                <span id="telefoneCliente"></span>
+
+
+            </td>
+
+
+
+            <td>
+
+
+                CEP:
+
+                <span id="cepCliente"></span>
+
+
+            </td>
+
+
+
+        </tr>
+
+
+
+    </table>
+
+
+
+
+
+    <!-- ================= PRODUTOS ================= -->
+
+
+
+    <div class="titulo-box">
+
+
+        DADOS DOS PRODUTOS / SERVIÇOS
+
+
+    </div>
+
+
+
+    <table class="produtos">
+
+
+
+        <thead>
+
+
+            <tr>
+
+
+                <th>
+                    ITEM
+                </th>
+
+
+                <th>
+                    CÓDIGO
+                </th>
+
+
+                <th>
+                    DESCRIÇÃO
+                </th>
+
+
+                <th>
+                    UNID
+                </th>
+
+
+                <th>
+                    QTD
+                </th>
+
+
+                <th>
+                    VALOR UNIT.
+                </th>
+
+
+                <th>
+                    VALOR TOTAL
+                </th>
+
+
+
+            </tr>
+
+
+        </thead>
+
+
+
+
+        <tbody id="listaProdutos">
+
+
+        </tbody>
+
+
+
+    </table>
+
+
+
+
+
+
+    <!-- ================= TOTAIS ================= -->
+
+
+    <table class="totais">
+
+
+        <tr>
+
+
+            <td class="descricao">
+
+                TOTAL DOS PRODUTOS
+
+            </td>
+
+
+            <td class="valor" id="totalProdutos">
+
+                R$ 0,00
+
+            </td>
+
+
+        </tr>
+
+
+
+
+        <tr>
+
+
+            <td class="descricao">
+
+                DESCONTO
+
+            </td>
+
+
+            <td class="valor" id="desconto">
+
+                R$ 0,00
+
+            </td>
+
+
+        </tr>
+
+
+
+
+        <tr>
+
+
+            <td class="descricao">
+
+                VALOR TOTAL
+
+            </td>
+
+
+            <td class="valor" id="valorFinal">
+
+                R$ 0,00
+
+            </td>
+
+
+        </tr>
+
+
+
+    </table>
+
+
+
+
+
+
+
+    <!-- ================= PAGAMENTO ================= -->
+
+
+
+    <div class="titulo-box">
+
+
+        Forma de Pagamento
+
+
+    </div>
+
+
+
+
+    <table class="pagamento">
+
+
+        <tr>
+
+
+            <td>
+
+
+                <span id="formaPagamento">
+
+                    Dinheiro
+
+                </span>
+
+
+            </td>
+
+
+        </tr>
+
+
+    </table>
+
+
+
+
+
+
+
+    <!-- ================= RODAPÉ ================= -->
+
+
+
+    <div class="rodape">
+
+
+        <p>
+
+
+            <strong>
+
+                QTD. TOTAL DE ITENS:
+
+            </strong>
+
+
+            <span id="quantidadeItens">
+
+                0
+
+            </span>
+
+
+        </p>
+
+
+
+
+        <p>
+
+
+            <strong>
+
+                OBSERVAÇÕES:
+
+            </strong>
+
+
+        </p>
+
+
+
+
+        <p>
+
+            Obrigado. Volte sempre.
+
+        </p>
+
+
+
+    </div>
+
+
+
+
+
+    <!-- ================= ASSINATURA ================= -->
+
+
+    <div class="assinatura">
+
+
+        <div>
+
+
+            <div class="linha-assinatura"></div>
+
+
+            Cliente
+
+
+        </div>
+
+
+
+
+        <div>
+
+
+            <div class="linha-assinatura"></div>
+
+
+            Responsável
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+<div class="acoes">
+
+
+    <button onclick="window.print()">
+
+
+        🖨 Imprimir
+
+
+    </button>
+
+
+</div>
+
+
+
+
+
+
+<script src="/admin/js/notas.js"></script>
+
+
+</body>
+
+</html>

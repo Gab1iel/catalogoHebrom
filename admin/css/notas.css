@@ -1,0 +1,878 @@
+/* ===========================
+   RESET
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    background:#d9d9d9;
+    font-family:Arial, Helvetica, sans-serif;
+    color:#000;
+    padding:20px;
+
+}
+
+/* ===========================
+   FOLHA
+=========================== */
+
+.dav{
+
+    width:210mm;
+    min-height:297mm;
+
+    margin:auto;
+
+    background:#fff;
+
+    border:2px solid #000;
+
+    padding:8mm;
+
+}
+
+/* ===========================
+   TOPO
+=========================== */
+
+.topo{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    margin-bottom:12px;
+
+}
+
+/* ===========================
+   LOGO
+=========================== */
+
+.logo{
+
+    width:58%;
+
+    height:150px;
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+.logo img{
+
+    max-width:280px;
+
+    max-height:120px;
+
+    object-fit:contain;
+
+}
+
+/* ===========================
+   QUADRO DAV
+=========================== */
+
+.quadro-dav{
+
+    width:38%;
+
+}
+
+.quadro-dav table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    table-layout:fixed;
+
+}
+
+.quadro-dav td{
+
+    border:1px solid #000;
+
+    padding:6px;
+
+    font-size:12px;
+
+    vertical-align:middle;
+
+}
+
+.dav-centro{
+
+    width:120px;
+
+    text-align:center;
+
+}
+
+.dav-centro h1{
+
+    font-size:30px;
+
+    margin-bottom:5px;
+
+    letter-spacing:1px;
+
+}
+
+.dav-centro p{
+
+    font-size:11px;
+
+    line-height:15px;
+
+    margin-bottom:8px;
+
+}
+
+.dav-centro span{
+
+    font-size:10px;
+
+}
+
+.dav-centro h2{
+
+    margin-top:3px;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+}
+
+.titulo{
+
+    background:#ececec;
+
+    font-weight:bold;
+
+}
+
+/* ===========================
+   TÍTULOS DAS SEÇÕES
+=========================== */
+
+.titulo-box{
+
+    border:1px solid #000;
+
+    border-bottom:none;
+
+    background:#ececec;
+
+    padding:6px;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+    text-transform:uppercase;
+
+    margin-top:8px;
+
+}
+
+/* ===========================
+   CLIENTE
+=========================== */
+
+.cliente{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    table-layout:fixed;
+
+}
+
+.cliente td{
+
+    border:1px solid #000;
+
+    padding:6px;
+
+    font-size:12px;
+
+    height:34px;
+
+    vertical-align:middle;
+
+}
+
+.cliente span{
+
+    font-weight:bold;
+
+    margin-left:5px;
+
+}
+
+.codigo{
+
+    width:180px;
+
+    text-align:center;
+
+}
+
+.codigo-barras{
+
+    font-size:26px;
+
+    letter-spacing:2px;
+
+    margin-bottom:8px;
+
+    user-select:none;
+
+}
+
+#codigoPedido{
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    letter-spacing:2px;
+
+}
+
+/* ===========================
+   ESPAÇAMENTO ENTRE BLOCOS
+=========================== */
+
+.produtos{
+
+    margin-top:0;
+
+}
+
+.pagamento{
+
+    margin-top:0;
+
+}
+
+.rodape{
+
+    margin-top:0;
+
+}
+
+/* ===========================
+   TABELA DE PRODUTOS
+=========================== */
+
+.produtos{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    table-layout:fixed;
+
+    margin-bottom:8px;
+
+}
+
+.produtos thead th{
+
+    background:#ececec;
+
+    border:1px solid #000;
+
+    padding:6px 4px;
+
+    font-size:11px;
+
+    font-weight:bold;
+
+    text-align:center;
+
+    text-transform:uppercase;
+
+}
+
+.produtos tbody td{
+
+    border:1px solid #000;
+
+    padding:5px;
+
+    font-size:11px;
+
+    height:28px;
+
+    vertical-align:middle;
+
+}
+
+/* Larguras das colunas */
+
+.produtos th:nth-child(1),
+.produtos td:nth-child(1){
+
+    width:45px;
+    text-align:center;
+
+}
+
+.produtos th:nth-child(2),
+.produtos td:nth-child(2){
+
+    width:80px;
+    text-align:center;
+
+}
+
+.produtos th:nth-child(3),
+.produtos td:nth-child(3){
+
+    width:auto;
+    text-align:left;
+
+}
+
+.produtos th:nth-child(4),
+.produtos td:nth-child(4){
+
+    width:55px;
+    text-align:center;
+
+}
+
+.produtos th:nth-child(5),
+.produtos td:nth-child(5){
+
+    width:70px;
+    text-align:center;
+
+}
+
+.produtos th:nth-child(6),
+.produtos td:nth-child(6){
+
+    width:110px;
+    text-align:right;
+
+    padding-right:10px;
+
+}
+
+.produtos th:nth-child(7),
+.produtos td:nth-child(7){
+
+    width:120px;
+    text-align:right;
+
+    padding-right:10px;
+
+}
+
+/* ===========================
+   PAGAMENTO
+=========================== */
+
+.pagamento{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    margin-bottom:8px;
+
+}
+
+.pagamento td{
+
+    border:1px solid #000;
+
+    padding:8px;
+
+    font-size:12px;
+
+    height:36px;
+
+}
+
+/* ===========================
+   RODAPÉ
+=========================== */
+
+.rodape{
+
+    border:1px solid #000;
+
+    padding:10px;
+
+    font-size:12px;
+
+    line-height:1.8;
+
+}
+
+.rodape p{
+
+    margin-bottom:6px;
+
+}
+
+.rodape strong{
+
+    display:inline-block;
+
+    min-width:170px;
+
+}
+
+/* ===========================
+   BOTÃO
+=========================== */
+
+.acoes{
+
+    width:210mm;
+
+    margin:20px auto;
+
+    display:flex;
+
+    justify-content:flex-end;
+
+}
+
+.acoes button{
+
+    background:#0B3A6E;
+
+    color:#fff;
+
+    border:none;
+
+    padding:12px 24px;
+
+    font-size:15px;
+
+    border-radius:4px;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.acoes button:hover{
+
+    background:#082b52;
+
+}
+
+/* ===========================
+   CAMPOS DINÂMICOS
+=========================== */
+
+#numeroPedido,
+#codigoPedido,
+#valorTotal,
+#valorProdutos{
+
+    font-weight:bold;
+
+}
+
+#nomeCliente,
+#cpfCliente,
+#telefoneCliente,
+#enderecoCliente,
+#bairroCliente,
+#cidadeCliente,
+#cepCliente{
+
+    font-weight:bold;
+
+}
+
+/* ===========================
+   LINHAS VAZIAS
+=========================== */
+
+.produtos tbody tr{
+
+    height:28px;
+
+}
+
+.produtos tbody tr td{
+
+    background:#fff;
+
+}
+
+/* ===========================
+   BLOCO DE TOTAIS
+=========================== */
+
+.totais{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    margin-top:5px;
+
+}
+
+
+.totais td{
+
+    border:1px solid #000;
+
+    padding:7px;
+
+    font-size:12px;
+
+    height:32px;
+
+}
+
+
+.totais .descricao{
+
+    width:70%;
+
+    font-weight:bold;
+
+    text-align:right;
+
+    padding-right:15px;
+
+}
+
+
+.totais .valor{
+
+    width:30%;
+
+    text-align:right;
+
+    font-weight:bold;
+
+    padding-right:10px;
+
+}
+
+
+/* ===========================
+   ÁREA DESCONTO / ACRÉSCIMO
+=========================== */
+
+.resumo-valores{
+
+    width:100%;
+
+    display:flex;
+
+    border:1px solid #000;
+
+}
+
+
+.resumo-item{
+
+    flex:1;
+
+    border-right:1px solid #000;
+
+    padding:8px;
+
+    text-align:center;
+
+    font-size:11px;
+
+}
+
+
+.resumo-item:last-child{
+
+    border-right:none;
+
+}
+
+
+.resumo-item strong{
+
+    display:block;
+
+    margin-top:5px;
+
+    font-size:13px;
+
+}
+
+
+/* ===========================
+   CÓDIGO DE BARRAS
+=========================== */
+
+
+.codigo-barras-box{
+
+    width:100%;
+
+    text-align:center;
+
+    padding:10px;
+
+    border:1px solid #000;
+
+}
+
+.barras{
+
+    font-family:
+    "Libre Barcode 39",
+    monospace;
+
+    font-size:35px;
+
+    line-height:40px;
+
+    overflow:hidden;
+
+}
+
+
+/* ===========================
+   OBSERVAÇÕES
+=========================== */
+
+
+.observacoes{
+
+    width:100%;
+
+    min-height:80px;
+
+    border:1px solid #000;
+
+    padding:8px;
+
+    font-size:12px;
+
+}
+
+
+.observacoes-title{
+
+    background:#ececec;
+
+    border-bottom:1px solid #000;
+
+    padding:5px;
+
+    font-weight:bold;
+
+    text-transform:uppercase;
+
+}
+
+
+/* ===========================
+   ASSINATURA
+=========================== */
+
+
+.assinatura{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-top:35px;
+
+}
+
+
+.assinatura div{
+
+    width:45%;
+
+    text-align:center;
+
+    font-size:11px;
+
+}
+
+
+.linha-assinatura{
+
+    border-top:1px solid #000;
+
+    margin-bottom:5px;
+
+}
+
+
+/* ===========================
+   AJUSTE DE ALTURA DA FOLHA
+=========================== */
+
+
+.dav{
+
+    position:relative;
+
+}
+
+
+.conteudo-final{
+
+    position:absolute;
+
+    bottom:10mm;
+
+    left:8mm;
+
+    right:8mm;
+
+}
+
+
+/* ===========================
+   IMPRESSÃO A4
+=========================== */
+
+
+@media print {
+
+
+    body{
+
+        background:#fff;
+
+        padding:0;
+
+        margin:0;
+
+    }
+
+
+    .acoes{
+
+        display:none;
+
+    }
+
+
+    .dav{
+
+        width:210mm;
+
+        min-height:297mm;
+
+        margin:0;
+
+        border:2px solid #000;
+
+        padding:8mm;
+
+        page-break-after:always;
+
+    }
+
+
+    @page{
+
+        size:A4;
+
+        margin:0;
+
+    }
+
+
+    table{
+
+        page-break-inside:auto;
+
+    }
+
+
+    tr{
+
+        page-break-inside:avoid;
+
+        page-break-after:auto;
+
+    }
+
+
+    td,
+    th{
+
+        -webkit-print-color-adjust:exact;
+
+        print-color-adjust:exact;
+
+    }
+
+
+}
+
+
+/* ===========================
+   RESPONSIVO (VISUALIZAÇÃO)
+=========================== */
+
+
+@media screen and (max-width:900px){
+
+
+    body{
+
+        padding:5px;
+
+    }
+
+
+    .dav{
+
+        width:100%;
+
+        transform:none;
+
+        padding:15px;
+
+    }
+
+
+    .topo{
+
+        flex-direction:column;
+
+    }
+
+
+    .logo,
+    .quadro-dav{
+
+        width:100%;
+
+    }
+
+
+}
