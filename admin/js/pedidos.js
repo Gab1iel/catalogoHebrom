@@ -48,7 +48,23 @@ function renderizarPedidos(pedidos){
     pedidos.forEach(pedido => {
 
 
-        const produtos = JSON.parse(pedido.produtos);
+      let produtos = [];
+
+try {
+
+    produtos = JSON.parse(pedido.produtos);
+
+} catch {
+
+    produtos = [
+        {
+            nome: pedido.produtos,
+            quantidade: 1,
+            preco: pedido.valor_total
+        }
+    ];
+
+}
 
 
         let listaProdutos = "";
@@ -73,21 +89,21 @@ function renderizarPedidos(pedidos){
                         ${item.quantidade}
                     </p>
 
-                    <p>
-                        Valor unitário:
-                        ${item.preco.toLocaleString("pt-BR",{
-                            style:"currency",
-                            currency:"BRL"
-                        })}
-                    </p>
+                   <p>
+    Valor unitário:
+    ${Number(item.preco).toLocaleString("pt-BR",{
+        style:"currency",
+        currency:"BRL"
+    })}
+</p>
 
-                    <p>
-                        Subtotal:
-                        ${subtotal.toLocaleString("pt-BR",{
-                            style:"currency",
-                            currency:"BRL"
-                        })}
-                    </p>
+<p>
+    Subtotal:
+    ${Number(subtotal).toLocaleString("pt-BR",{
+        style:"currency",
+        currency:"BRL"
+    })}
+</p>
 
                 </div>
 
